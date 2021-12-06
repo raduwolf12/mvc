@@ -69,7 +69,7 @@ public class EmployeeController {
 	/**
 	 * Delete employee data.
 	 *
-	 * @param id the id
+	 * @param id       the id
 	 * @param employee the employee
 	 * @return the string
 	 */
@@ -82,7 +82,7 @@ public class EmployeeController {
 	/**
 	 * Update employee.
 	 *
-	 * @param id the id
+	 * @param id    the id
 	 * @param model the model
 	 * @return the string
 	 */
@@ -109,13 +109,13 @@ public class EmployeeController {
 	 * Search employee.
 	 *
 	 * @param employeeId the employee id
-	 * @param model the model
+	 * @param model      the model
 	 * @return the string
 	 */
 	@RequestMapping(value = "/searchEmployee", method = RequestMethod.GET)
-	public String searchEmployee(@RequestParam("id") Integer employeeId, Model model) {
-		if (employeeId != null) {
-			Employee emp = employeeService.getEmployeeById(employeeId);
+	public String searchEmployee(@RequestParam("name") String employeeName, Model model) {
+		if (employeeName != null) {
+			Employee emp = employeeService.getEmployeeByName(employeeName);
 			if (emp != null) {
 				List<Employee> employeeList = new ArrayList<Employee>();
 				employeeList.add(emp);

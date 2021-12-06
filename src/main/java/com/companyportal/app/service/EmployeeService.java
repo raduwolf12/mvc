@@ -37,6 +37,8 @@ public interface EmployeeService {
 	 * @return the employee by id
 	 */
 	public Employee getEmployeeById(int id);
+	
+	public Employee getEmployeeByName(String name);
 
 	/**
 	 * Delete employee data.

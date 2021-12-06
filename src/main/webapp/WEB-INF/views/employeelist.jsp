@@ -7,23 +7,40 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+}
+</style>
 </head>
 <body>
 
+	<ul>
+		<li><a href="/app/"><button type="button">Add
+					employee!</button></a></li>
+		<li><a href="/app/employeelist"><button type="button">View
+					all employees!</button></a></li>
+	</ul>
+
 	<h1>employee list</h1>
- 
+
 	<div align="center">
 		<form action="searchEmployee" method="get">
-		<input name="id" id="id">
-		<input type="submit">
+			<input name="name" id="name"> <input type="submit">
 		</form>
 		<table>
-		   <tr>
-			<th>Name</th>
-			<th>ProjectDetails</th>
-			<th>Mail Id</th>
-			<th>phone number</th>
-           </tr>
+			<tr>
+				<th>Name</th>
+				<th>ProjectDetails</th>
+				<th>Mail Id</th>
+				<th>phone number</th>
+			</tr>
 			<c:forEach items="${employeeList}" var="emp">
 				<tr>
 					<td>${emp.name}</td>

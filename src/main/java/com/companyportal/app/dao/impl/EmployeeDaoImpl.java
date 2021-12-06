@@ -3,6 +3,8 @@ package com.companyportal.app.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.companyportal.app.dao.EmployeeDao;
 import com.companyportal.app.entity.Employee;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class EmployeeDaoImpl.
  */
@@ -28,7 +31,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	 *
 	 * @param employee the employee
 	 */
-	@Transactional
 	@Override
 	public void saveEmployeeData(Employee employee) {
 		Session session = sessionFactory.openSession();
@@ -108,6 +110,31 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		session.beginTransaction();
 
 		employee = (Employee) session.get(Employee.class, id);
+
+		session.getTransaction().commit();
+		session.close();
+
+		return employee;
+	}
+
+	/**
+	 * Gets the employee by name.
+	 *
+	 * @param name the name
+	 * @return the employee by name
+	 * @throws NoResultException the no result exception
+	 */
+	@Override
+	public Employee getEmployeeByName(String name) throws NoResultException {
+		Employee employee = null;
+
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		Query query = session.createQuery("From Employee e where e.name= :ename");
+		query.setParameter("ename", name);
+
+		employee = (Employee) query.getSingleResult();
 
 		session.getTransaction().commit();
 		session.close();

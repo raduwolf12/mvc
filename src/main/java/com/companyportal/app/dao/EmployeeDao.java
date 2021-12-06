@@ -45,4 +45,12 @@ public interface EmployeeDao {
 	 * @return the employee by id
 	 */
 	Employee getEmployeeById(int id);
+
+	/**
+	 * Gets the employee by name.
+	 *
+	 * @param name the name
+	 * @return the employee by name
+	 */
+	Employee getEmployeeByName(String name);
 }

@@ -9,6 +9,7 @@ import com.companyportal.app.dao.EmployeeDao;
 import com.companyportal.app.entity.Employee;
 import com.companyportal.app.service.EmployeeService;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class EmployeeServiceImpl.
  */
@@ -69,6 +70,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee getEmployeeById(int id) {
 		return employeeDao.getEmployeeById(id);
+	}
+
+	/**
+	 * Gets the employee by name.
+	 *
+	 * @param name the name
+	 * @return the employee by name
+	 */
+	@Override
+	public Employee getEmployeeByName(String name) {
+		Employee employee = null;
+		try {
+			employee = employeeDao.getEmployeeByName(name);
+		} catch (Exception e) {
+			System.out.println("No entity found for query");
+		}
+		return employee;
 	}
 
 }

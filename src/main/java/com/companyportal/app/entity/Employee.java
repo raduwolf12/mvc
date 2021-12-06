@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Employee.
  */
@@ -27,6 +28,29 @@ public class Employee {
 
 	/** The phone no. */
 	private String phoneNo;
+
+	/**
+	 * Instantiates a new employee.
+	 */
+	public Employee() {
+	}
+
+	/**
+	 * Instantiates a new employee.
+	 *
+	 * @param employeeId the employee id
+	 * @param name the name
+	 * @param project the project
+	 * @param mailId the mail id
+	 * @param phoneNo the phone no
+	 */
+	public Employee(Integer employeeId, String name, String project, String mailId, String phoneNo) {
+		this.employeeId = employeeId;
+		this.name = name;
+		this.project = project;
+		this.mailId = mailId;
+		this.phoneNo = phoneNo;
+	}
 
 	/**
 	 * Gets the employee id.
